@@ -51,12 +51,41 @@
     .page-title {
         @apply text-2xl;
     }
-    /*Fim do conteúdo da página*/ 
-    
+    /*Fim do conteúdo da página*/
+
+    /*Inicio do formulário*/
+    .form-container {
+        @apply mt-6 bg-white shadow-md rounded-lg p-6;
+    }
+
+    .form-label {
+        @apply block text-sm font-semibold;
+    }
+    .form-input {
+        @apply border p-2 w-full mt-1 rounded-md border-blue-100 shadow-sm focus:border-blue-300  focus:ring-blue-200 focus:outline-none;
+    }
+    /*Fim do formulário*/ 
+
     /*Botões*/
     .btn-primary {
         @apply bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors;
     }
+
+    .btn-success {
+        @apply p-2 bg-green-500 text-white rounded-md hover:bg-green-600 cursor-pointer transition-colors;
+    }
     /*Fim botões*/
+
+    /* Inicio Alertas*/
+
+    /*Alerta de sucesso*/
+    .alert-success {
+        @apply p-4 mb-4 text-sm text-green-900 rounded-lg bg-green-200 dark:bg-gray-800 dark:text-green-400;
+    }
+    /*Alerta de erro*/
+    .alert-error {
+        @apply p-4 mb-4 text-sm text-red-900 rounded-lg bg-red-200 dark:bg-gray-800 dark:text-red-400;
+    }
+    /*Fim Alertas*/
 
 }

@@ -1,61 +1,41 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite(['resources/css/app.css'])
+@extends('layouts.admin')
 
-    <title>Celke</title>
-</head>
-<body>
-    <div class="main-container">
-        <header class="header">
-            <div class="content-header">
-                <h2 class="title-logo"><a href="{{ route('dashboard') }}">Lukay</a></h2>
-                <ul class="list-nav-link">
-                    <li><a href="#" class="nav-link">Usuários</a></li>
-                    <li><a href="{{ route('dashboard') }}" class="nav-link">Sair</a></li>
-                </ul>
-            </div>
-        </header>
-        
-        <div class="content">
-            <div class="content-title">
-                <h1 class="page-title">Cadastrar Usuário</h1>
-                <a href="#" class="btn-primary">Listar</a>
-            </div>
+@section('content')
+
+
+    
+    <div class="content">
+        <div class="content-title">
+            <h1 class="page-title">Cadastrar Usuário</h1>
+            <a href="#" class="btn-primary">Listar</a>
         </div>
-        
 
-            @if (session('sucess'))
-                <p style="color: #086">
-                {{ session('sucess') }}
-                </p>
-            @endif
+        <x-alert />
 
-            @if (session('error'))
-                <p style="color: #F00">
-                {{ session('error') }}
-                </p>
-            @endif
-
-        <form action="{{ route('user.store') }}" method="POST">
+        <form action="{{ route('user.store') }}" method="POST" class="form-container">
             @csrf 
-            <label for="name">Nome: </label>
-            <input type="text" name="name" id="name" placeholder="Nome completo"
-            value="{{ old('name') }}" required><br><br>
 
-            <label for="email">Email: </label>
-            <input type="text" name="email" id="email" placeholder="Melhor e-mail"
-            value="{{ old('email') }}" required><br><br>
+            <div class="mb-4">
+                <label for="name" class="form-label">Nome: </label>
+                <input type="text" name="name" id="name" class="form-input" placeholder="Nome completo"
+                value="{{ old('name') }}" required><br><br>
+            </div>
+            
 
-            <label for="password">Senha: </label>
-            <input type="password" name="password" id="password" placeholder="Senha com no mínimo 6 caracteres"
-            value="{{ old('password') }}" required><br><br>
+            <div class="mb-4">
+                <label for="email" class="form-label">Email: </label>
+                <input type="text" name="email" id="email" class="form-input" placeholder="Melhor e-mail"
+                value="{{ old('email') }}" required><br><br>
+            </div>
 
-            <button type="submit">Cadastrar</button>
+            <div class="mb-4">
+                <label for="password" class="form-label">Senha: </label>
+                <input type="password" name="password" id="password" class="form-input" placeholder="Senha com no mínimo 6 caracteres"
+                value="{{ old('password') }}" required><br><br>
+            </div>
 
+            <button type="submit" class="btn-success">Cadastrar</button>
         </form>
-    </div>
-</body>
-</html>
+    </div>    
+
+@endsection
