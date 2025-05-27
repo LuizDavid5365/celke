@@ -2,19 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Exception;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+    public function index ()
+    {
+       $users = User::orderByDesc('id')->paginate(4);
+
+       return view('users.index', ['users' => $users]);
+    }
+
     public function create()
     {
         // Carregar a view
         return view('users.create');
     }
 
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         //dd($request);
 
